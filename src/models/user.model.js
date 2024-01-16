@@ -54,6 +54,7 @@ const userSchema = new Schema(
     }
 )
 
+// Middleware function to hash the password before saving to the database
 userSchema.pre('save', async function (next) {
     if (!this.isModified("password")) return next();
 
@@ -68,6 +69,7 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 const AccessToken = "helloworld123"
 const RefreshToken = "helloWorld123"
 
+// Method to generate an access token for the user
 userSchema.methods.genrateAcessToken = async function () {
     return jwt.sign(
         {
@@ -82,6 +84,7 @@ userSchema.methods.genrateAcessToken = async function () {
     )
 }
 
+// Method to generate refresh token for the user
 userSchema.methods.genrateRefreshToken = async function () {
     return jwt.sign(
         {

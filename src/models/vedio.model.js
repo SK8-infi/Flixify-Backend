@@ -42,6 +42,7 @@ const videoSchema = new Schema(
     }
 )
 
+// Use a plugin to enable pagination support for the video model
 videoSchema.plugin(mongooseAggregatePaginate)
 
 export const Video = mongoose.model("Video", videoSchema)
