@@ -1,11 +1,11 @@
-import { ApiError } from "../utils/ApiError";
+import { ApiError } from "../utils/ApiError.js";
 // import { ApiResponse } from "../utils/ApiResponse";
-import { asyncHandler } from "../utils/asyncHandler";
+import { asyncHandler } from "../utils/asyncHandler.js";
 import jwt from "jsonwebtoken";
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
 
 const AccessToken = "helloworld123"
-const RefreshToken = "helloWorld123"
+// const RefreshToken = "helloWorld123"
 
 export const verifyJWT = asyncHandler((req, res, next) => {
 

@@ -10,8 +10,11 @@ import mongoose from "mongoose";
 const generateAccessAndRefereshTokens = async (userId) => {
     try {
         const user = await User.findById(userId)
+
+
         const accessToken = user.generateAccessToken()
         const refreshToken = user.generateRefreshToken()
+
 
         user.refreshToken = refreshToken
         await user.save({ validateBeforeSave: false })
@@ -20,6 +23,7 @@ const generateAccessAndRefereshTokens = async (userId) => {
 
 
     } catch (error) {
+        console.log(error);
         throw new ApiError(500, "Something went wrong while generating referesh and access token")
     }
 }
@@ -111,10 +115,10 @@ const loginUser = asyncHandler(async (req, res) => {
     //send cookie
 
     const { email, username, password } = req.body
-    console.log(email);
+    // console.log(email);
 
     if (!username && !email) {
-        throw new ApiError(400, "username or email is required")
+        throw new ApiError(400, "helolo username or email is required")
     }
 
     // Here is an alternative of above code based on logic discussed in video:
@@ -130,6 +134,8 @@ const loginUser = asyncHandler(async (req, res) => {
     if (!user) {
         throw new ApiError(404, "User does not exist")
     }
+
+    // console.log(user)
 
     const isPasswordValid = await user.isPasswordCorrect(password)
 

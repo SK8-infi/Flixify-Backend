@@ -58,9 +58,13 @@ const userSchema = new Schema(
 userSchema.pre('save', async function (next) {
     if (!this.isModified("password")) return next();
 
-    this.password = bcrypt.hash(this.password, 10)
-    next()
-})
+    try {
+        this.password = await bcrypt.hash(this.password, 10);
+        next();
+    } catch (error) {
+        next(error);
+    }
+});
 
 userSchema.methods.isPasswordCorrect = async function (password) {
     return await bcrypt.compare(password, this.password)
@@ -69,30 +73,29 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 const AccessToken = "helloworld123"
 const RefreshToken = "helloWorld123"
 
-// Method to generate an access token for the user
-userSchema.methods.genrateAcessToken = async function () {
+userSchema.methods.generateAccessToken = function () {
     return jwt.sign(
         {
             _id: this._id,
+            email: this.email,
             username: this.username,
             fullName: this.fullName
         },
         AccessToken,
         {
-            expiresIn: "10d"
+            expiresIn: '1d'
         }
     )
 }
-
-// Method to generate refresh token for the user
-userSchema.methods.genrateRefreshToken = async function () {
+userSchema.methods.generateRefreshToken = function () {
     return jwt.sign(
         {
-            _id: this._id
+            _id: this._id,
+
         },
         RefreshToken,
         {
-            expiresIn: "1d"
+            expiresIn: '10d'
         }
     )
 }
