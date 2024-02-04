@@ -180,6 +180,7 @@ const logoutUser = asyncHandler(async (req, res) => {
             new: true
         }
     )
+    // console.log(req.user)
 
     const options = {
         httpOnly: true,
