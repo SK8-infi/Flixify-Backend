@@ -1,7 +1,5 @@
 import { v2 as cloudinary } from 'cloudinary';
-import { log } from 'console';
 import fs from 'fs'
-
 
 cloudinary.config({
     cloud_name: 'djhshvtwo',
@@ -26,4 +24,3 @@ const uploadOnCloudinary = async (localFilePath) => {
 }
 
 export { uploadOnCloudinary };
-

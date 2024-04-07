@@ -33,10 +33,7 @@ const getChannelVideos = asyncHandler(async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({
-            status: "error",
-            message: "Something went wrong while getting channel videos."
-        })
+        throw new ApiError(401, error?.message || "Something went wrong while getting channel videos.")
 
     }
 })
@@ -88,11 +85,7 @@ const getChannelStats = asyncHandler(async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({
-            status: "error",
-            message: "Something went wrong while getting channel stats."
-        })
-
+        throw new ApiError(401, error?.message || "Something went wrong while getting channel stats.")
     }
 })
 

@@ -49,8 +49,7 @@ const toggleVideoLike = asyncHandler(async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({ error: "Error in vedio like toggle" })
-
+        throw new ApiError(401, error?.message || "Error in vedio like toggle")
     }
 })
 
@@ -96,8 +95,7 @@ const toggleCommentLike = asyncHandler(async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({ error: "Error in comment like toggle" })
-
+        throw new ApiError(401, error?.message || "Error in comment like toggle")
     }
 })
 
@@ -142,7 +140,7 @@ const toggleTweetLike = asyncHandler(async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({ error: "Error in tweet like toggle" })
+        throw new ApiError(401, error?.message || "Error in tweet like toggle.")
 
     }
 })
@@ -176,7 +174,7 @@ const getLikedVideos = asyncHandler(async (req, res) => {
 
     } catch (error) {
         console.log(error)
-        res.status(500).json({ error: "Error in getting liked videos" })
+        throw new ApiError(401, error?.message || "Something went wrong while getting liked videos.")
 
     }
 })
