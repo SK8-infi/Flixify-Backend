@@ -109,7 +109,7 @@ Services used for storing the data- mongoDB and Cloudinary
 Clone the project
 
 ```bash
- https://github.com/AdityaKrSingh26/Flixify-Backend.git
+  git clone https://github.com/AdityaKrSingh26/Flixify-Backend.git
 ```
 
 Install dependencies
