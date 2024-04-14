@@ -7,86 +7,101 @@ Services used for storing the data- mongoDB and Cloudinary
 
 
 
-## API Routes
 
-### For Users
+## API Reference
 
-- `/api/v1/users`
+#### For Users
 
-  -`/register`- POST - Registers an user
-  -`/login`- POST - Logs in an user
-  -`/logout`- POST - Logs out an user
-  -`/change-password`- POST - Changes the password for the user
-  -`/refresh-token`- POST - Generates new refresh token for the user
-  -`/current-user`- GET - Gets the current user
-  -`/watch-history`- GET - Gets the watch history of current user
-  -`/channel/:username`- GET - Returns user channel profile
-  -`/avatar`- PATCH - Updates the avatar of the user
-  -`/cover-image`- PATCH - Updates the cover image of the user
-  -`/update-account-details`- PATCH - Updates the account details of the user
+#### Base URL: `/api/v1/users`
+
+| Endpoint               | Method | Description                                |
+| :--------------------- | :----- | :----------------------------------------- |
+| `/register`            | `POST` | Registers a new user.                      |
+| `/login`               | `POST` | Logs in a user.                            |
+| `/logout`              | `POST` | Logs out a user.                           |
+| `/change-password`     | `POST` | Changes the password for the user.         |
+| `/refresh-token`       | `POST` | Generates a new refresh token for the user.|
+| `/current-user`        | `GET`  | Gets the current user.                     |
+| `/watch-history`       | `GET`  | Gets the watch history of the current user.|
+| `/channel/:username`   | `GET`  | Returns the user's channel profile.        |
+| `/avatar`              | `PATCH`| Updates the avatar of the user.            |
+| `/cover-image`         | `PATCH`| Updates the cover image of the user.       |
+| `/update-account-details` | `PATCH`| Updates the account details of the user.   |
+
 
 ### For Videos
 
-- `/api/v1/videos`
-- 
-  -`/publish-video`- POST - To upload the video
-  -`/update-video/:videoId`- POST - Update video details(title, description and thumbnail)
-  -`/toggle-publish-status/:videoId`- POST - Toggle the publish status of a video
-  -`/get-all-videos`- GET - To fetch all videos of the user
-  -`/:videoId`- GET - To fetch the video by video ID
-  -`/delete-video/:videoId`- DELETE - To delete the video
+#### Base URL: `/api/v1/videos`
+
+| Endpoint                           | Method   | Description                                       |
+| :--------------------------------- | :------- | :------------------------------------------------ |
+| `/publish-video`                   | `POST`   | Uploads a new video.                             |
+| `/update-video/:videoId`           | `POST`   | Updates video details (title, description, and thumbnail) for the specified video ID. |
+| `/toggle-publish-status/:videoId`  | `POST`   | Toggles the publish status of a video.           |
+| `/get-all-videos`                  | `GET`    | Fetches all videos of the user.                  |
+| `/:videoId`                        | `GET`    | Fetches the video by video ID.                   |
+| `/delete-video/:videoId`           | `DELETE` | Deletes the video specified by the video ID.     |
+
 
 ### For Tweets
 
-- `/api/v1/tweets`
+#### Base URL: `/api/v1/tweets`
 
-  -`/`- POST - To create a tweet
-  -`/user/:userId`- GET - To get user tweets
-  -`/:tweetId`- GET - To update the tweet
-  -`/:tweetId`- DELETE - To delete the tweet
+| Endpoint              | Method   | Description                            |
+| :-------------------- | :------- | :------------------------------------- |
+| `/`                   | `POST`   | Creates a new tweet.                   |
+| `/user/:userId`       | `GET`    | Retrieves tweets for a specific user. |
+| `/:tweetId`           | `GET`    | Retrieves the tweet by tweet ID.       |
+| `/:tweetId`           | `DELETE` | Deletes the tweet specified by the tweet ID. |
 
-### For Playlist
 
-- `/api/v1/playlist`
+#### Base URL: `/api/v1/playlist`
 
-  -`/:playlistId` - GET - To fetch the playlist
-         -PATCH - To update the playlist
-         -DELETE - To delete the playlist
-  -`/add/:videoId/:playlistId`- PATCH - To add video to the playlist
-  -`/remove/:videoId/:playlistId`- PATCH - To remove video from the playlist
-  -`/user/:userId`- GET - To get user playlists
+| Endpoint                          | Method   | Description                                          |
+| :-------------------------------- | :------- | :--------------------------------------------------- |
+| `/:playlistId`                    | `GET`    | Fetches the playlist by playlist ID.                 |
+| `/:playlistId`                    | `PATCH`  | Updates the playlist specified by the playlist ID.   |
+| `/:playlistId`                    | `DELETE` | Deletes the playlist specified by the playlist ID.   |
+| `/add/:videoId/:playlistId`       | `PATCH`  | Adds a video to the playlist specified by video ID and playlist ID. |
+| `/remove/:videoId/:playlistId`    | `PATCH`  | Removes a video from the playlist specified by video ID and playlist ID. |
+| `/user/:userId`                   | `GET`    | Retrieves playlists for a specific user.             |
 
-### For Comments
 
-- `/api/v1/comments`
--
-  -`/:videoId` - GET - To get video comments
-  -POST - To comment onto a video
-  -`/c/:commentId`- PATCH - To update the comment - DELETE- To delete the comment
+#### Base URL: `/api/v1/comments`
 
-### For Likes
+| Endpoint              | Method   | Description                              |
+| :-------------------- | :------- | :--------------------------------------- |
+| `/:videoId`           | `GET`    | Retrieves comments for a specific video. |
+| `/:videoId`           | `POST`   | Comments on a specific video.            |
+| `/c/:commentId`       | `PATCH`  | Updates a comment specified by the comment ID. |
+| `/c/:commentId`       | `DELETE` | Deletes a comment specified by the comment ID. |
 
-- `/api/v1/likes`
 
-  -`/toggle/v/:videoId`- POST - To toggle video like
-  -`/toggle/c/:commentId`- POST - To toggle comment like
-  -`/toggle/t/:tweetId`- POST - To toggle tweet like
-  -`/videos`- GET - To get the liked videos of the logged in user
+#### Base URL: `/api/v1/likes`
 
-### For Subscription
+| Endpoint                        | Method | Description                                          |
+| :------------------------------ | :----- | :--------------------------------------------------- |
+| `/toggle/v/:videoId`            | `POST` | Toggles the like status for a specific video.       |
+| `/toggle/c/:commentId`          | `POST` | Toggles the like status for a specific comment.     |
+| `/toggle/t/:tweetId`            | `POST` | Toggles the like status for a specific tweet.       |
+| `/videos`                       | `GET`  | Retrieves the liked videos of the logged-in user.   |
 
-- `/api/v1/subscriptions`
 
-  -`/c/:channelId` - GET - To get Channel Subscribers
-  -POST - To toggle subscription on the channel
-  -`/u/:subscriberId`- GET - To get Subscribed channels
+#### Base URL: `/api/v1/subscriptions`
 
-### For Dashboard
+| Endpoint                  | Method | Description                                            |
+| :------------------------ | :----- | :----------------------------------------------------- |
+| `/c/:channelId`           | `GET`  | Retrieves subscribers for a specific channel.         |
+| `/c/:channelId`           | `POST` | Toggles subscription status for a specific channel.   |
+| `/u/:subscriberId`        | `GET`  | Retrieves subscribed channels for a specific user.    |
 
-- `/api/v1/dashboard`
 
-  -`/stats`- GET - To get channel stats(logged in)
-  -`/videos`- GET - TTo get channel videos(logged in)
+#### Base URL: `/api/v1/dashboard`
+
+| Endpoint      | Method | Description                                |
+| :------------ | :----- | :----------------------------------------- |
+| `/stats`      | `GET`  | Retrieves channel statistics (logged in). |
+| `/videos`     | `GET`  | Retrieves channel videos (logged in).     |
 
 
 ## Run Locally
