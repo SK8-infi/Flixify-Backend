@@ -1,8 +1,8 @@
-# 🎬 Flixify Backend
+# Flixify Backend
 
 A robust, production-ready backend for a video hosting platform similar to YouTube. Built with modern web technologies and following industry best practices for authentication, file handling, and API design.
 
-## 🚀 Features
+## Features
 
 - **User Authentication**: JWT-based authentication with access/refresh tokens
 - **Video Management**: Upload, stream, update, and delete videos with Cloudinary integration
@@ -13,7 +13,7 @@ A robust, production-ready backend for a video hosting platform similar to YouTu
 - **Security**: Password hashing with bcrypt, CORS protection
 - **Database**: MongoDB with Mongoose ODM and aggregation pipelines
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Runtime**: Node.js
 - **Framework**: Express.js
@@ -24,7 +24,7 @@ A robust, production-ready backend for a video hosting platform similar to YouTu
 - **File Upload**: Multer
 - **Development**: Nodemon for hot reloading
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -183,11 +183,7 @@ src/
 
 The server will start on `http://localhost:8000`
 
-## Data Model
-[Model](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
-
-
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please follow these guidelines:
 
