@@ -1,9 +1,40 @@
-# Flixify
-A complex backend project that is built with nodejs, expressjs, mongodb, mongoose, jwt, bcrypt, and many more. This project is a complete backend project that has all the features that a backend project should have. I tried to build a complete video hosting website similar to youtube with all the features like login, signup, upload video, like, unlike, comment, subscribe, unsubscribe, and many more.
+# 🎬 Flixify Backend
 
-Project uses all standard practices like JWT, bcrypt, access tokens, refresh Tokens and many more.
+A robust, production-ready backend for a video hosting platform similar to YouTube. Built with modern web technologies and following industry best practices for authentication, file handling, and API design.
 
-Services used for storing the data- mongoDB and Cloudinary
+## 🚀 Features
+
+- **User Authentication**: JWT-based authentication with access/refresh tokens
+- **Video Management**: Upload, stream, update, and delete videos with Cloudinary integration
+- **Social Features**: Comments, likes, subscriptions, and playlists
+- **Tweet System**: Twitter-like functionality for user engagement
+- **Dashboard Analytics**: Channel statistics and video management
+- **File Upload**: Secure file handling with Multer middleware
+- **Security**: Password hashing with bcrypt, CORS protection
+- **Database**: MongoDB with Mongoose ODM and aggregation pipelines
+
+## 🛠️ Tech Stack
+
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Database**: MongoDB with Mongoose
+- **Authentication**: JWT (JSON Web Tokens)
+- **File Storage**: Cloudinary
+- **Security**: bcrypt for password hashing
+- **File Upload**: Multer
+- **Development**: Nodemon for hot reloading
+
+## 📁 Project Structure
+
+```
+src/
+├── controllers/     # Route handlers and business logic
+├── models/         # MongoDB schemas and models
+├── routes/         # API route definitions
+├── middleware/     # Authentication and file upload middleware
+├── utils/          # Helper functions and utilities
+└── db/            # Database connection configuration
+```
 
 
 
@@ -104,33 +135,83 @@ Services used for storing the data- mongoDB and Cloudinary
 | `/videos`     | `GET`  | Retrieves channel videos (logged in).     |
 
 
-## Run Locally
+## 🚀 Quick Start
 
-Clone the project
+### Prerequisites
+- Node.js (v16 or higher)
+- MongoDB (local or Atlas)
+- Cloudinary account for file storage
 
-```bash
-  git clone https://github.com/AdityaKrSingh26/Flixify-Backend.git
-```
+### Installation
 
-Install dependencies
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/AdityaKrSingh26/Flixify-Backend.git
+   cd Flixify-Backend
+   ```
 
-```bash
-  npm install
-```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Start the server
+3. **Set up environment variables**
+   Create a `.env` file in the root directory:
+   ```env
+   PORT=8000
+   MONGODB_URI=your_mongodb_connection_string
+   CORS_ORIGIN=*
+   ACCESS_TOKEN_SECRET=your_access_token_secret
+   ACCESS_TOKEN_EXPIRY=1d
+   REFRESH_TOKEN_SECRET=your_refresh_token_secret
+   REFRESH_TOKEN_EXPIRY=10d
+   
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUDINARY_API_KEY=your_cloudinary_api_key
+   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+   ```
 
-```bash
-  npm start
-```
+4. **Start the development server**
+   ```bash
+   npm run server:dev
+   ```
+
+5. **For production**
+   ```bash
+   npm start
+   ```
+
+The server will start on `http://localhost:8000`
 
 ## Data Model
 [Model](https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj)
 
 
-## Documentation
+## 🤝 Contributing
 
-[mongoose](https://mongoosejs.com/docs/guide.html)
-[multer](https://www.npmjs.com/package/multer)
-[jason web tokens](https://www.npmjs.com/package/jsonwebtoken)
-[cloudinary](https://cloudinary.com/documentation/node_integration)
+We welcome contributions! Please follow these guidelines:
+
+### Quick Setup
+1. **Fork & Clone**: Fork the repo and clone your fork
+2. **Branch**: Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Install**: Run `npm install` and set up your `.env` file
+4. **Code**: Make your changes following our standards
+
+### Code Standards
+- Use ES6+ syntax and modules
+- Follow existing naming conventions (camelCase for variables/functions)
+- Add JSDoc comments for functions
+- Handle errors properly with try-catch blocks
+- Use async/await over promises
+
+### Submission Process
+1. **Test**: Ensure your changes work locally
+2. **Commit**: Use descriptive commit messages
+3. **Push**: Push to your fork (`git push origin feature/amazing-feature`)
+4. **PR**: Open a Pull Request with a clear description
+
+### Guidelines
+- Keep PRs focused and small
+- Update documentation if needed
+- Follow the existing code style
+- Test your changes thoroughly
