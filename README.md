@@ -204,7 +204,7 @@ We welcome contributions! Please follow these guidelines:
 1. **Test**: Ensure your changes work locally
 2. **Commit**: Use descriptive commit messages
 3. **Push**: Push to your fork (`git push origin feature/amazing-feature`)
-4. **PR**: Open a Pull Request with a clear description
+4. **PR**: Open a Pull Request with a clear description and Raise your PR on DEV branch.
 
 ### Guidelines
 - Keep PRs focused and small
